@@ -1,0 +1,525 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/*** body ***
+  Purpose:
+  - Add style rules for the body of your webpage
+  - This is useful if you want a rule to apply to EVERYTHING on your page
+    - (Tip: You can always override these rules later in the stylesheet)
+***/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    /* Add a background color or image */
+    background-color: var(--bg-color); /* see bottom of file for color variables */
+
+
+    /* Customize the default size, color, and font for text*/
+    font-size: 16px;
+    color: var(--text-color);
+    font-family: 'Open Sans', sans-serif;
+
+
+    /* Put space around the edges of the webpage */
+
+
+    padding-bottom: 50px;
+
+}
+
+.container{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header{
+    background-image: url('https://amphitheater.ucsd.edu/wp-content/uploads/2024/09/Fall-Farmers-Market-JPEG-002-scaled.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin: 0;
+    z-index: -2;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* space between image and text */
+}
+
+.header-logo {
+    height: 200px; /* adjust as needed */
+    width: auto;
+    display: block;
+}
+
+
+
+.header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+.header h1{
+    font-size: 46px;
+    margin: -20px 0 20px;
+    color: white;
+
+}
+
+.header h2{
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    flex:0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.panel h3{
+    font-size: 30px;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    margin:0;
+    opacity: 0;
+
+}
+
+.panel p{
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin:0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex: 5;
+
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.5s;
+    padding: 20px;
+
+}
+
+.panel.active p{
+    font-size: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.5s;
+    padding: 20px;
+    color: white;
+}
+
+.panel.active:nth-of-type(1) p{
+    color:black;
+}
+
+.panel.active:nth-of-type(2) h3{
+    color:white;
+}
+
+.panel.active:nth-of-type(3) h3{
+    color:white;
+}
+
+@media(max-width: 480px){
+    .container{
+        width: 100vw;
+    }
+  }
+
+
+/*** Text ***
+  Purpose:
+  - Add style rules for headings (h1-6),
+    paragraphs (p), links (a), and buttons
+***/
+
+
+h1 {
+    font-size: 2.5em;            /* 2.5 times the default size */
+    color: var(--text-color); /* see bottom of file for color variables */
+    text-align: center;          /* Center the text */
+    margin-bottom: 20px;        /* Space below the heading */
+}
+
+
+h2 {
+   font-size: 1.5em;            /* 2.5 times the default size */
+    color: var(--text-color); /* see bottom of file for color variables */
+    text-align: left;          /* Center the text */
+    margin: 20px;
+}
+
+
+h3 {
+   font-size: 1.5em;            /* 2.5 times the default size */
+    color: var(--text-color); /* see bottom of file for color variables */
+    text-align: left;          /* Center the text */
+    margin: 20px;
+}
+
+
+h4 {
+   font-size: 1.5em;            /* 2.5 times the default size */
+    color: var(--text-color); /* see bottom of file for color variables */
+    text-align: left;          /* Center the text */
+    margin: 20px;
+}
+
+
+p {
+    font-size: 1em;            /* 2.5 times the default size */
+    color: var(--text-color); /* see bottom of file for color variables */
+    text-align: left;          /* Center the text */
+    margin: 20px;
+    line-height: 30px;
+    letter-spacing: 0.9px;
+}
+
+
+.bullets {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+.bullets li {
+  background: url('/images/sprout.png') no-repeat left center;
+  background-size: 24px 24px;  
+  padding-left: 36px;           
+  min-height: 24px;  
+  margin-left: 25px;           
+}
+ 
+
+
+button{
+    width: 180px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    background-color: green;
+    color: white;
+    border: darkgreen solid;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+
+
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;  
+    gap: 20px;                
+    margin: 20px 0;
+}
+
+button:focus{
+    outline: none;
+}
+
+button .circle {
+  position: absolute;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: scale 0.5s ease-out;
+}
+
+button:hover {
+    /* Make the button look different when the user hovers over it */
+    background-color: lightgreen;
+}
+
+@keyframes scale{
+    to{
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
+
+
+
+/*** header ***
+  Purpose:
+  - Add style rules for your website's header section
+***/
+
+
+.header { /* Example A: This styles elements with class="header" */
+    background-color: var(--accent-color-light); /* see bottom of file for color variables */
+    padding: 20px;            /* Space inside the header */
+    text-align: center;       /* Center the text inside the header */
+    margin-bottom: 20px;      /* Space below the header */
+    border-radius: 10px;      /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+   
+}
+
+/* Header using Flexbox */
+.header-container {
+    display: flex;              /* Enable flexbox layout */
+    flex-direction: row;        /* Align items in a row (column for vertical) */
+    text-align: center;         /* Optional: Center the text inside the header */
+    margin-top: 20px;           /* Optional: Adjust top margin */
+}
+
+/* Target header items using nth-of-type pseudo-classes */
+.header-item:nth-of-type(1) {
+    /* Style for the first item (could be the first button, image, or text) */
+    background-color: rgb(84, 241, 102);  /* Example: Background color */
+}
+
+
+.header-item:nth-of-type(2) {
+    /* Style for the second item */
+    background-color: lightgreen;  /* Example: Background color */
+}
+
+
+
+/*** footer ***
+  Purpose:
+  - Add style rules for your website's footer section
+***/
+
+
+.footer { /* Example B: This styles elements with class="footer" */
+   
+}
+
+
+/*** Navigation bar (navbar) ***
+  Purpose:
+  - Add style rules for your website's navbar
+***/
+
+.nav{
+    position: fixed;
+    background-color: #222;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.logo img {
+    height: 70px;  
+    width: auto;
+    object-position: top left;
+}
+
+.nav ul{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.nav.active{
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+}
+
+.nav.active a{
+    color: black;
+}
+
+.nav.active .container{
+    padding: 10px 0;
+}
+
+.nav a.current, .nav a:hover{
+    color:green;
+    font-weight: bold;
+}
+
+
+
+
+/*** About Section ***
+  Purpose:
+  - Add style rules for your website's About section
+***/
+
+
+
+
+/*** Links Section ***
+  Purpose:
+  - Add style rules for your website's Links section
+***/
+
+
+
+
+/*** Dark Mode [PLACEHOLDER] ***/
+/* Default dark mode style */
+.dark-mode {
+    background: #444444;
+    color: #fff
+    
+}
+
+
+/* Example: Different dark mode style for h1 */
+.dark-mode h1 {
+  color: var(--text-color-dark-mode)
+}
+.dark-mode h2 {
+  color: var(--text-color-dark-mode)
+}
+.dark-mode h3 {
+  color: var(--text-color-dark-mode)
+}
+.dark-mode h4 {
+  color: var(--text-color-dark-mode)
+}
+.dark-mode p {
+  color: var(--text-color-dark-mode)
+}
+
+/* Example: Different dark mode style for visited links */
+.dark-mode a:visited * {
+  color: #0ff;
+}
+
+
+/* Add style to button */
+#theme-button {
+  padding: 8px 16px;
+  margin: 10px;
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+    
+}
+#theme-button:hover {
+  background: #333;  /* Darker gray for hover */
+  color: #0ff;       /* Cyan text */
+}
+
+
+/*** Custom Colors (OPTIONAL) ***
+  Purpose:
+  - Use CSS variables to define custom colors for your website
+  - To reference a color variable in your css, use var(--variable-name) in place of a color value
+***/
+
+
+:root {
+    /* Light Mode */
+    --bg-color: #ffffeb;
+    --text-color: #000000;
+
+
+    /* Dark Mode */
+    --bg-color-dark-mode: #4a484837;
+    --text-color-dark-mode: #fff;
+
+
+    /* Accent Colors */
+    --accent-color-light: #d2cff5;
+    --accent-color-medium: #684fb5;
+    --accent-color-dark: #482f95;
+    --accent-color-darkest: #231942;
+    --accent-color-green: #28eb76;
+
+
+    /* Error Colors */
+    --error-color: #f8bbd0;
+    --error-color-border: #e63946;
+}
+/*** RSVP Section ***/
+#rsvp {
+    margin-left: 40px; /* Adjust value as needed */
+}
+
+.rsvp-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.rsvp-para {
+  width: 55%;
+  padding-right: 10px;
+  
+}
+.rsvp-participants {
+  width: 45%;
+  padding-right: 10px;
+  
+}
+
+
+/* Add other rsvp-related selectors here */
+
